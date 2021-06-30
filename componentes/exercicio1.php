@@ -18,8 +18,8 @@
                     <span>Me ajude a resolver esse exercício:</span>
                 </div>
                 <form action="" method="POST">
-                    <input type="number" placeholder="Posições" name="posicoes">
-                    <input type="number" placeholder="Rotações" name="rotacoes">
+                    <input type="number" placeholder="Posições" name="posicoes" min="0">
+                    <input type="number" placeholder="Rotações" name="rotacoes" min="0">
                     <select name="direcao">
                         <option value="1">ESQUERDA</option>
                         <option value="2">DIREITA</option>
