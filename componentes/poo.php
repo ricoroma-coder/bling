@@ -58,7 +58,14 @@ include_once __DIR__ . "/../utilitarios/php/classes/element.php";
                     foreach($_element->getElements() as $_key => $_item){
                         echo "Item({$_key}): ".print_r($_item)."<br>";
                     }
+                    echo '<br><br>'
                 ?>
+                <div class="showImage">
+                    <div>Pseudocódigo</div>
+                    <img src="../utilitarios/img/pseudocodigo.png" alt="Pseudocódigo">
+                    <div>Diagrama de classes</div>
+                    <img src="../utilitarios//img/diagrama_classes.png" alt="Diagrama de Classes">
+                </div>
                 </div>
             </div>
         </div>
