@@ -48,10 +48,10 @@ class Exercicio6 extends Basica
     {
         $_campo = "_ret_{$_chave}";
         $_aux = Array(
-            "max_x" => 0,
-            "min_x" => 0,
-            "max_y" => 0,
-            "min_y" => 0
+            "max_x" => null,
+            "min_x" => null,
+            "max_y" => null,
+            "min_y" => null
         );
         $this->$_campo = array_merge($this->$_campo, $_aux);
         foreach ($this->$_campo as $_medidas)
@@ -59,14 +59,14 @@ class Exercicio6 extends Basica
             $_x_y = explode(',', $_medidas);
             if (isset($_x_y[0]) && isset($_x_y[1]))
             {
-                if ($_x_y[0] > $this->$_campo['max_x'])
+                if ($_x_y[0] > $this->$_campo['max_x'] || is_null($this->$_campo['max_x']))
                     $this->$_campo['max_x'] = $_x_y[0];
-                else if ($_x_y[0] < $this->$_campo['min_x'])
+                else if ($_x_y[0] < $this->$_campo['min_x'] || is_null($this->$_campo['min_x']))
                     $this->$_campo['min_x'] = $_x_y[0];
 
-                if ($_x_y[1] > $this->$_campo['max_y'])
+                if ($_x_y[1] > $this->$_campo['max_y'] || is_null($this->$_campo['max_y']))
                     $this->$_campo['max_y'] = $_x_y[1];
-                else if ($_x_y[1] < $this->$_campo['min_y'])
+                else if ($_x_y[1] < $this->$_campo['min_y'] || is_null($this->$_campo['min_y']))
                     $this->$_campo['min_y'] = $_x_y[1];
             }
             
@@ -75,8 +75,8 @@ class Exercicio6 extends Basica
 
     public function detectarSobreposicao()
     {
-        $this->checarEixoX();
-        $this->checarEixoY();
+        $this->checarEixo();
+        $this->checarEixo('y');
 
         $_sobreposto = true;
         foreach (['a','b','c','d'] as $_index)
@@ -89,78 +89,48 @@ class Exercicio6 extends Basica
             $this->calcularAreaNovoRet();
     }
 
-    public function checarEixoX()
+    public function checarEixo($_eixo = 'x')
     {
-        if ($this->_ret_2['max_x'] <= $this->_ret_1['max_x'] && $this->_ret_2['max_x'] > $this->_ret_1['min_x'])
+        $_lado_1 = 'b';
+        $_lado_2 = 'd';
+        if ($_eixo == 'y')
         {
-            if ($this->_ret_2['min_x'] <= $this->_ret_1['min_x'])
+            $_lado_1 = 'a';
+            $_lado_2 = 'c';
+        }
+        if ($this->_ret_2["max_{$_eixo}"] <= $this->_ret_1["max_{$_eixo}"] && $this->_ret_2["max_{$_eixo}"] > $this->_ret_1["min_{$_eixo}"])
+        {
+            if ($this->_ret_2["min_{$_eixo}"] <= $this->_ret_1["min_{$_eixo}"])
             {
-                $this->_novo_ret['b'] = $this->_ret_2['max_x'] - $this->_ret_1['min_x'];
-                $this->_novo_ret['max_x'] = $this->_ret_2['max_x'];
-                $this->_novo_ret['min_x'] = $this->_ret_1['min_x'];
+                $this->_novo_ret[$_lado_1] = $this->_ret_2["max_{$_eixo}"] - $this->_ret_1["min_{$_eixo}"];
+                $this->_novo_ret["max_{$_eixo}"] = $this->_ret_2["max_{$_eixo}"];
+                $this->_novo_ret["min_{$_eixo}"] = $this->_ret_1["min_{$_eixo}"];
             }
             else
             {
-                $this->_novo_ret['b'] = $this->_ret_2['max_x'] - $this->_ret_2['min_x'];
-                $this->_novo_ret['max_x'] = $this->_ret_2['max_x'];
-                $this->_novo_ret['min_x'] = $this->_ret_2['min_x'];
+                $this->_novo_ret[$_lado_1] = $this->_ret_2["max_{$_eixo}"] - $this->_ret_2["max_{$_eixo}"];
+                $this->_novo_ret["max_{$_eixo}"] = $this->_ret_2["max_{$_eixo}"];
+                $this->_novo_ret["min_{$_eixo}"] = $this->_ret_2["min_{$_eixo}"];
             }
         }
-        else if ($this->_ret_2['min_x'] >= $this->_ret_1['min_x'] && $this->_ret_2['min_x'] < $this->_ret_1['max_x'])
+        else if ($this->_ret_2["min_{$_eixo}"] >= $this->_ret_1["min_{$_eixo}"] && $this->_ret_2["min_{$_eixo}"] < $this->_ret_1["max_{$_eixo}"])
         {
-            if ($this->_ret_2['max_x'] >= $this->_ret_1['max_x'])
+            if ($this->_ret_2["max_{$_eixo}"] >= $this->_ret_1["max_{$_eixo}"])
             {
-                $this->_novo_ret['b'] = $this->_ret_1['max_x'] - $this->_ret_2['min_x'];
-                $this->_novo_ret['max_x'] = $this->_ret_1['max_x'];
-                $this->_novo_ret['min_x'] = $this->_ret_2['min_x'];
+                $this->_novo_ret[$_lado_1] = $this->_ret_1["max_{$_eixo}"] - $this->_ret_2["min_{$_eixo}"];
+                $this->_novo_ret["max_{$_eixo}"] = $this->_ret_1["max_{$_eixo}"];
+                $this->_novo_ret["min_{$_eixo}"] = $this->_ret_2["min_{$_eixo}"];
             }
             else
             {
-                $this->_novo_ret['b'] = $this->_ret_2['max_x'] - $this->_ret_2['min_x'];
-                $this->_novo_ret['max_x'] = $this->_ret_2['max_x'];
-                $this->_novo_ret['min_x'] = $this->_ret_2['min_x'];
-            }
-        }
-
-        if (isset($this->_novo_ret['b']))
-            $this->_novo_ret['d'] = $this->_novo_ret['b'];
-    }
-
-    public function checarEixoY()
-    {
-        if ($this->_ret_2['max_y'] <= $this->_ret_1['max_y'] && $this->_ret_2['max_y'] > $this->_ret_1['min_y'])
-        {
-            if ($this->_ret_2['min_y'] <= $this->_ret_1['min_y'])
-            {
-                $this->_novo_ret['a'] = $this->_ret_2['max_y'] - $this->_ret_1['min_y'];
-                $this->_novo_ret['max_y'] = $this->_ret_2['max_y'];
-                $this->_novo_ret['min_y'] = $this->_ret_1['min_y'];
-            }
-            else
-            {
-                $this->_novo_ret['a'] = $this->_ret_2['max_y'] - $this->_ret_2['min_y'];
-                $this->_novo_ret['max_y'] = $this->_ret_2['max_y'];
-                $this->_novo_ret['min_y'] = $this->_ret_2['min_y'];
-            }
-        }
-        else if ($this->_ret_2['min_y'] >= $this->_ret_1['min_y'] && $this->_ret_2['min_y'] < $this->_ret_1['max_y'])
-        {
-            if ($this->_ret_2['max_y'] >= $this->_ret_1['max_y'])
-            {
-                $this->_novo_ret['a'] = $this->_ret_1['max_y'] - $this->_ret_2['min_y'];
-                $this->_novo_ret['max_y'] = $this->_ret_1['max_y'];
-                $this->_novo_ret['min_y'] = $this->_ret_2['min_y'];
-            }
-            else
-            {
-                $this->_novo_ret['a'] = $this->_ret_2['max_y'] - $this->_ret_2['min_y'];
-                $this->_novo_ret['max_y'] = $this->_ret_2['max_y'];
-                $this->_novo_ret['min_y'] = $this->_ret_2['min_y'];
+                $this->_novo_ret[$_lado_1] = $this->_ret_2["max_{$_eixo}"] - $this->_ret_2["min_{$_eixo}"];
+                $this->_novo_ret["max_{$_eixo}"] = $this->_ret_2["max_{$_eixo}"];
+                $this->_novo_ret["min_{$_eixo}"] = $this->_ret_2["min_{$_eixo}"];
             }
         }
 
-        if (isset($this->_novo_ret['a']))
-            $this->_novo_ret['c'] = $this->_novo_ret['a'];
+        if (isset($this->_novo_ret[$_lado_1]))
+            $this->_novo_ret[$_lado_2] = $this->_novo_ret[$_lado_1];
     }
 
     public function calcularAreaNovoRet()
