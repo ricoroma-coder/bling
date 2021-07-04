@@ -1,0 +1,113 @@
+CREATE DATABASE PRODUTORA_BLING;
+
+CREATE TABLE FILME(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, TITULO VARCHAR(45) NOT NULL, ANO YEAR(4) NOT NULL);
+
+CREATE TABLE ATOR(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, NOME VARCHAR(45) NOT NULL);
+
+CREATE TABLE ELENCO(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ID_ATOR INT NOT NULL, ID_FILME INT NOT NULL);
+
+CREATE TABLE DIRETOR(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, NOME VARCHAR(45) NOT NULL);
+
+CREATE TABLE DIRECAO(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ID_DIRETOR INT NOT NULL, ID_FILME INT NOT NULL);
+
+INSERT INTO FILME(TITULO, ANO) VALUES
+('Harry Potter e a Pedra Filosofal', 2001),
+('O Diabo Veste Prada', 2006),
+('A Mulher de Preto', 2012),
+('Rampage: Destruição Total', 2018),
+('Jurrasic Park - Parque dos Dinossauros', 1993),
+('Minority Report - A Nova Lei', 2002);
+
+INSERT INTO DIRETOR(NOME) VALUES
+('Chris Columbus'),
+('David Frankel'),
+('James Watkins'),
+('Brad Peyton'),
+('Steven Spielberg');
+
+INSERT INTO DIRECAO(ID_DIRETOR, ID_FILME) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(5, 6);
+
+INSERT INTO ATOR(NOME) VALUES
+('Daniel Radcliffe'),
+('Emma Watson'),
+('Rupert Grint'),
+('Anne Hathaway'),
+('Maryl Streep'),
+('Emily Blunt'),
+('Clarás Hinds'),
+('Janet McTeer'),
+('Dwayne Johnson'),
+('Naomie Harris'),
+('Malin Akerman'),
+('Jeff Goldblum'),
+('Laura Dern'),
+('San Neill'),
+('Daniel London'),
+('Tom Cruise'),
+('Samantha Morton');
+
+INSERT INTO ELENCO(ID_FILME, ID_ATOR) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(3, 1),
+(3, 7),
+(3, 8),
+(4, 9),
+(4, 10),
+(4, 11),
+(5, 12),
+(5, 13),
+(5, 14),
+(6, 15),
+(6, 16),
+(6, 17);
+
+----------------------EXERCICIOS----------------------
+--A
+SELECT A.NOME, 
+	F.TITULO 
+FROM ATOR A 
+JOIN ELENCO E 
+	ON E.ID_ATOR = A.ID 
+JOIN FILME F 
+	ON E.ID_FILME = F.ID 
+WHERE F.TITULO = 'XYZ';
+
+--B
+SELECT A.NOME, 
+	F.TITULO 
+FROM ATOR A 
+JOIN ELENCO E 
+	ON E.ID_ATOR = A.ID 
+JOIN FILME F 
+	ON E.ID_FILME = F.ID 
+WHERE A.NOME = 'FULANO'
+
+--C
+SELECT F.TITULO, 
+	(SELECT COUNT(*) FROM ELENCO WHERE ID_FILME = F.ID) AS QTD_ATORES 
+FROM FILME F 
+WHERE F.ANO = 2015
+ORDER BY QTD_ATORES, F.TITULO
+
+--D
+SELECT A.NOME, 
+	F.TITULO
+FROM FILME F 
+JOIN DIRECAO D 
+	ON D.ID_FILME = F.ID 
+	AND D.ID_DIRETOR = (SELECT ID FROM DIRETOR WHERE NOME = 'SPIELBERG') 
+LEFT JOIN ELENCO E 
+	ON E.ID_FILME = F.ID 
+LEFT JOIN ATOR A 
+	ON A.ID = E.ID_ATOR
