@@ -2,6 +2,8 @@
 
 class Basica 
 {
+    public $_erro = "";
+
     public function buscar($_atributo)
     {
         return $this->$_atributo;
@@ -20,5 +22,10 @@ class Basica
         {
             $this->$_atributo = $_valor;
         }
+    }
+
+    public function montarHTML($_html = "")
+    {
+        echo $_html;
     }
 }

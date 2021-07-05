@@ -17,6 +17,10 @@ class Exercicio1 extends Basica
     public function rotacionarArray($_rotacoes, $_direcao)
     {
         $_tam_array = sizeof($this->_array);
+
+        if ($_rotacoes > $_tam_array)
+            $_rotacoes = $_rotacoes % $_tam_array;
+
         if ($_direcao == 1)
         {
             for ($_i = 0; $_i < $_tam_array; $_i++)
@@ -45,5 +49,20 @@ class Exercicio1 extends Basica
                 unset($this->_array[$_chave]);
             }
         }
+    }
+
+    public function montarHTML($_html = "")
+    {
+        $_html = '<p><span class="tipagem">Array</span>[<span class="numero">'.sizeof($this->_array).'</span>]<br>[';
+        $_i = 0;
+        foreach ($this->_array as $_valor)
+        {
+            if ($_i == 0)
+                $_html .= '<br>';
+            $_html .= "&nbsp;&nbsp;[<span class=\"numero\">{$_i}</span>] => <span class=\"numero\">{$_valor}</span><span class=\"virgula\">,</span><br>";
+            $_i++;
+        }
+        $_html .= ']</p>';
+        parent::montarHTML($_html);
     }
 }

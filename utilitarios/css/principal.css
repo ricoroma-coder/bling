@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../fontes/FredokaOne-Regular.ttf');
+    src: url('../fontes/FredokaOne-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fontes/FredokaOne-Regular.woff') format('woff'),
+        url('../fontes/FredokaOne-Regular.ttf') format('truetype'),
+        url('../fontes/FredokaOne-Regular.svg#Fredoka') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#content #cabecalho {
+    flex: 1;
+    background: #04D699;
+    padding: 30px 20px;
+}
+
+#content #cabecalho #pergunta {
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Fredoka One';
+    text-align: center;
+}
+
+#content #cabecalho #pergunta .numero {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0px 10px;
+}
+
+#content #entradas {
+    flex: 3;
+    background-color: #3f3d3d;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#content #entradas .apresentacao {
+    color:#04D699;
+    font-family: 'Fredoka One';
+    font-size: x-large;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+#content #entradas form {
+    margin: 20px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+#content #entradas form input,
+#content #entradas form select,
+#content #entradas form button {
+    font-size: 24px;
+    padding: 5px 10px;
+    font-family: 'Fredoka One';
+    outline: 0;
+    margin: 5px;
+}
+
+#content #entradas form input,
+#content #entradas form select {
+    color: #04D699;
+    background-color: transparent;
+    border: none;
+    border-radius: 15px;
+    width: 30%;
+    border-bottom: 1px solid #fff;
+}
+
+#content #entradas form button {
+    color: #fff;
+    background-color: #04D699;
+    border: none;
+    border-radius: 20px;
+    max-width: 400px;
+    flex: 1;
+    cursor: pointer;
+}
+
+#content #entradas form select option {
+    background-color: #3f3d3d;
+}
+
+::-webkit-input-placeholder {
+    color: #04D699;
+ }
+ 
+ :-moz-placeholder {
+    color: r#04D699ed;  
+ }
+ 
+ ::-moz-placeholder {
+    color: #04D699;  
+ }
+ 
+ :-ms-input-placeholder {  
+    color: #04D699;  
+ }
+
+#content #solucoes {
+    flex: 3;
+    background-image: url('../img/fundo.png');
+    opacity: .7;
+    background-repeat: repeat;
+    background-color: #868686;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#content #solucoes #terminal {
+    border: 1px solid #000;
+}
+
+#content #solucoes #terminal .barra {
+    height: 30px;
+    border: 1px solid #000;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#content #solucoes #terminal .barra .header {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#content #solucoes #terminal .barra .header img {
+    height: 20px;
+    margin: 0px 5px;
+}
+
+#content #solucoes #terminal .barra .options {
+    height: 20px;
+    margin-right: 5px;
+}
+
+#content #solucoes #terminal .barra .options .scroll {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#content #solucoes #terminal .terminal-content {
+    background-color: #000;
+    color: #fff;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+#content #solucoes #terminal .terminal-content p {
+    margin: 0;
+    padding: 10px;
+}
+
+#content #solucoes #terminal .terminal-content p.erro {
+    color:red;
+}
+
+#content #solucoes #terminal .terminal-content .numero {
+    color: deeppink;
+}
+
+#content #solucoes #terminal .terminal-content .tipagem {
+    color: blue;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#content #solucoes #terminal .terminal-content .virgula {
+    color: yellow;
+}
