@@ -76,7 +76,7 @@ class Exercicio6 extends Basica
         }
 
         if ($this->validarRetangulo($_controle) === false)
-            $this->_erro .= "A forma não é um retângulo";
+            $this->_erro[] = "A forma <strong>". substr($_campo, -1) ."</strong> não é um retângulo";
     }
 
     public function validarRetangulo($_controle)
@@ -161,7 +161,7 @@ class Exercicio6 extends Basica
     {
         if (!empty($this->_erro))
         {
-            $_html = '<p>'.implode('<br>', $this->_erro).'</p>';
+            $_html = '<p class="erro">'.implode('<br>', $this->_erro).'</p>';
         }
         else
         {
