@@ -5,6 +5,8 @@
 <html>
     <head>
         <title>Bling - Exercício 4</title>
+        <link rel="stylesheet" href="../utilitarios/css/principal.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
     <body>
         <div id="content">
@@ -17,7 +19,7 @@
                 <div class="apresentacao">
                     <span>Me ajude a resolver esse exercício:</span>
                 </div>
-                <form action="" method="POST">
+                <form action="" method="POST" exe="exercicio4.php" id="form">
                     <?php
                         for ($_i = 1; $_i <= 6; $_i++)
                         {
@@ -30,23 +32,24 @@
                 </form>
             </div>
             <div id="solucoes">
-                <div class="solucao">
-                    <?php
-                        if (isset($_POST['enviar'])) 
-                        {
-                            $_post = $_POST;
-                            $_array = Array();
-                            for ($_i = 1; $_i <= 6; $_i++)
-                            {
-                                $_array[$_i] = $_post["medida_{$_i}"];
-                            }
-                            $_obj = new Exercicio4($_array);
-                            $_obj->combinar();
-                            echo '<pre>'.var_export($_obj->buscar('_combinacoes'), true).'</pre>';
-                        }
-                    ?>
+                <div id="terminal">
+                    <div class="barra">
+                        <div class="header">
+                            <img src="../utilitarios/img/terminal.png" alt="">
+                            <span>Terminal</span>
+                        </div>
+                        <div class="options">
+                            <div class="scroll fas fa-angle-up opened"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content opened">
+                        <p>© Terminal by Roma Technologies</p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <script src="../utilitarios/javascript/principal.js"></script>
     </body>
 </html>
