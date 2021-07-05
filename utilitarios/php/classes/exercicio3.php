@@ -95,7 +95,16 @@ class Exercicio3 extends Basica
                     $_dias += $this->calcularDiaMesAno(['01', '01', $_i], ['31', '12', $_i]);
             }
         }
-        
+
         return $_dias;
+    }
+
+    public function montarHTML($_html = "")
+    {
+        if (!is_numeric($_html))
+            $_ret = '<p class="erro">'.$_html.'</p>';
+        else
+            $_ret = "<p><span class=\"numero\">{$_html}</span> dias de diferença.</p>";
+        parent::montarHTML($_ret);
     }
 }
