@@ -1,0 +1,19 @@
+#content #entradas form input {
+    width: 20% !important;
+}
+
+#content #entradas form > div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#content #solucoes #terminal .terminal-content .mapa-tabela {
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+#content #solucoes #terminal .terminal-content .mapa-tabela .linha-tabela {
+    width: 20px;
+    height: 20px;
+}

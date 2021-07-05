@@ -54,11 +54,14 @@ class Exercicio6 extends Basica
             "min_y" => null
         );
         $this->$_campo = array_merge($this->$_campo, $_aux);
+        $_controle = Array();
         foreach ($this->$_campo as $_medidas)
         {
             $_x_y = explode(',', $_medidas);
             if (isset($_x_y[0]) && isset($_x_y[1]))
             {
+                $_controle['x'][$_x_y[0]] = $_x_y[0];
+                $_controle['y'][$_x_y[1]] = $_x_y[1];
                 if ($_x_y[0] > $this->$_campo['max_x'] || is_null($this->$_campo['max_x']))
                     $this->$_campo['max_x'] = $_x_y[0];
                 else if ($_x_y[0] < $this->$_campo['min_x'] || is_null($this->$_campo['min_x']))
@@ -71,6 +74,16 @@ class Exercicio6 extends Basica
             }
             
         }
+
+        if ($this->validarRetangulo($_controle) === false)
+            $this->_erro .= "A forma não é um retângulo";
+    }
+
+    public function validarRetangulo($_controle)
+    {
+        if (sizeof($_controle['x']) > 2 || sizeof($_controle['y']) > 2)
+            return false;
+        return true;
     }
 
     public function detectarSobreposicao()
@@ -142,5 +155,90 @@ class Exercicio6 extends Basica
             $this->_novo_ret['forma'] = 'Quadrado';
         else
             $this->_novo_ret['forma'] = 'Retângulo';
+    }
+
+    public function montarHTML($_html = "")
+    {
+        if (!empty($this->_erro))
+        {
+            $_html = '<p>'.implode('<br>', $this->_erro).'</p>';
+        }
+        else
+        {
+            $_html = $this->desenharMapa();
+        }
+
+        parent::montarHTML($_html);
+    }
+
+    public function desenharMapa()
+    {
+        $_html = '<table class="mapa-tabela">';
+        for ($_i = $this->_mapa['max_y']; $_i >= ($this->_mapa['min_y'] - 1); $_i--)
+        {
+            $_html .= '<tr class="coluna-tabela">';
+            for ($_j = ($this->_mapa['min_x'] - 1); $_j <= $this->_mapa['max_x']; $_j++)
+            {
+                if ($_i == ($this->_mapa['min_y'] - 1))
+                {
+                    if ($_j != ($this->_mapa['min_x'] - 1))
+                        $_html .= '<td class="linha-tabela numero" style="color:white">'.$_j.'</td>';
+                    else
+                        $_html .= '<td class="linha-tabela numero" style="color:white">*</td>';
+                    continue;
+                }
+                else if ($_j == ($this->_mapa['min_x'] - 1))
+                {
+                    $_html .= '<td class="linha-tabela numero" style="color:white">'.$_i.'</td>';
+                    continue;
+                }
+                
+                $_style = "";
+                if ($_i == 0)
+                    $_style .= 'border-bottom: 1px solid white;';
+
+                if ($_j == 0)
+                    $_style .= 'border-left: 1px solid white;';
+
+                for ($_x = 1; $_x <= 2; $_x++)
+                {
+                    $_campo = '_ret_'.$_x;
+                    if ($_i >= $this->$_campo['min_y'] && $_i < $this->$_campo['max_y'])
+                    {
+                        if ($_j >= $this->$_campo['min_x'] && $_j < $this->$_campo['max_x'])
+                        {
+                            $_style_aux = 'background-color:'. ($_x == 1 ? 'blue;' : 'red;');
+                            if (isset($this->_novo_ret['min_y']) && isset($this->_novo_ret['max_y']) && isset($this->_novo_ret['min_x']) && isset($this->_novo_ret['max_x']))
+                            {
+                                if ($_i >= $this->_novo_ret['min_y'] && $_i < $this->_novo_ret['max_y'])
+                                {
+                                    if ($_j >= $this->_novo_ret['min_x'] && $_j < $this->_novo_ret['max_x'])
+                                        $_style_aux = 'background-color:orange;';
+                                }
+                            }
+                            
+                            $_style .= $_style_aux;
+                        }
+                    }
+                }
+
+                $_html .= '<td class="linha-tabela" style="'.$_style.'"></td>';
+            }
+            $_html .= '</tr>';
+        }
+        $_html .= "</table>";
+
+        // (!isset($_forma['forma']) ? "Não é uma forma sobreposta" : "{$_forma['forma']} - Área: {$_forma['area']}m²");
+        if (!isset($this->_novo_ret['forma']))
+        {
+            $_html .= '<p>Não são formas sobrepostas</p>';
+        }
+        else
+        {
+            $_html .= "<p>Este é um {$this->_novo_ret['forma']} de área igual a {$this->_novo_ret['area']}m²</p>";
+            $_html .= "<p class=\"observacao\"><strong>OBS:</strong> A parte correspondente ao {$this->_novo_ret['forma']} são os elementos em laranja.</p>";
+        }
+
+        return $_html;
     }
 }

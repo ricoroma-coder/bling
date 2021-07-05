@@ -72,6 +72,15 @@ body {
     justify-content: space-around;
 }
 
+#content #entradas form .descricao {
+    display: block;
+    color:#fff;
+    font-weight: bold;
+    font-family: 'Fredoka One';
+    font-size: large;
+    padding: 5px 0px;
+}
+
 #content #entradas form input,
 #content #entradas form select,
 #content #entradas form button,
@@ -226,4 +235,8 @@ body {
 
 #content #solucoes #terminal .terminal-content .grifado {
     background-color: darkblue;
+}
+
+#content #solucoes #terminal .terminal-content .observacao {
+    color:darkorange;
 }

@@ -5,6 +5,9 @@
 <html>
     <head>
         <title>Bling - Exercício 6</title>
+        <link rel="stylesheet" href="../utilitarios/css/principal.css">
+        <link rel="stylesheet" href="../utilitarios/css/exercicio6.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
     <body>
         <div id="content">
@@ -17,9 +20,9 @@
                 <div class="apresentacao">
                     <span>Me ajude a resolver esse exercício:</span>
                 </div>
-                <form action="" method="POST">
+                <form action="" method="POST" exe="exercicio6.php" id="form">
                     <div>
-                        <span>Retângulo 1</span>
+                        <span class="descricao">Retângulo 1</span>
                         <?php 
                             for ($_i = 0; $_i < 4; $_i++)
                             {
@@ -30,7 +33,7 @@
                         ?>
                     </div>
                     <div>
-                        <span>Retângulo 2</span>
+                        <span class="descricao">Retângulo 2</span>
                         <?php 
                             for ($_i = 0; $_i < 4; $_i++)
                             {
@@ -45,29 +48,24 @@
                 </form>
             </div>
             <div id="solucoes">
-                <div class="solucao">
-                    <?php
-                        if (isset($_POST['enviar'])) 
-                        {
-                            $_post = $_POST;
-                            $_auxiliar = Array();
-                            $_obj = new Exercicio6();
-                            for ($_i = 1; $_i <= 2; $_i++)
-                            {
-                                for ($_j = 0; $_j < 4; $_j++)
-                                {
-                                    $_auxiliar[$_i][$_j] = $_post["ret_{$_i}_med_{$_j}"];
-                                }
-                                $_obj->atribuir("_ret_{$_i}", $_auxiliar[$_i]);
-                            }
-                            $_obj->montarMapa();
-                            $_obj->detectarSobreposicao();
-                            $_forma = $_obj->buscar('_novo_ret');
-                            echo (!isset($_forma['forma']) ? "Não é uma forma sobreposta" : "{$_forma['forma']} - Área: {$_forma['area']}m²");
-                        }
-                    ?>
+                <div id="terminal">
+                    <div class="barra">
+                        <div class="header">
+                            <img src="../utilitarios/img/terminal.png" alt="">
+                            <span>Terminal</span>
+                        </div>
+                        <div class="options">
+                            <div class="scroll fas fa-angle-up opened"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content opened">
+                        <p>© Terminal by Roma Technologies</p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <script src="../utilitarios/javascript/principal.js"></script>
     </body>
 </html>
