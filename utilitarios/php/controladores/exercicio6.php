@@ -22,7 +22,5 @@ class ControladorExercicio6
             $_obj->detectarSobreposicao();
         
         $_obj->montarHTML();
-        // $_forma = $_obj->buscar('_novo_ret');
-        // echo (!isset($_forma['forma']) ? "Não é uma forma sobreposta" : "{$_forma['forma']} - Área: {$_forma['area']}m²");
     }
 }

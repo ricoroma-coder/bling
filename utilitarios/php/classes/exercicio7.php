@@ -102,4 +102,33 @@ class Exercicio7 extends Basica
             }
         }
     }
+
+    public function montarHTML($_html = "")
+    {
+        $_html .= "<p>Calculando rotas...</p>";
+        $_html .= "<p>Ponto inicial: <strong>A</strong>...</p>";
+        $_html .= "<p>Ponto final: <strong>E</strong>...</p>";
+        foreach ($this->_caminhos as $_index => $_caminhos)
+        {
+            $_i = 1;
+            $_html .= "<p><strong>". strtoupper($_index) ."</strong></p>";
+            foreach ($_caminhos as $_caminho => $_distancia)
+            {
+                $_html .= "<div class=\"gps\">";
+                $_html .= "<div>Caminho <span class=\"numero\">{$_i}</span></div>";
+                $_pontos = str_split($_caminho);
+                foreach ($_pontos as $_ponto)
+                {
+                    $_ponto = strtoupper($_ponto);
+                    $_html .= "<div class=\"ponto\"><div class\"icone\"><i style=\"color:red;\"  class=\"fas fa-map-marker-alt\"></i></div><hr><span><strong>{$_ponto}</strong></span></div>";
+                }
+                $_html .= "<div>Distância <span class=\"numero\">{$_distancia}</span></div>";
+                $_html .= "</div>";
+                $_i++;
+            }
+            
+        }
+
+        parent::montarHTML($_html);
+    }
 }

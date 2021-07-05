@@ -1,0 +1,23 @@
+#content #solucoes #terminal .terminal-content .gps {
+    padding: 5px;
+    margin: 20px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#content #solucoes #terminal .terminal-content .gps .ponto {
+    width: 50px;
+    height: 50px;
+    flex: 1;
+}
+
+#content #solucoes #terminal .terminal-content .gps .ponto .icone i {
+    width: 25px;
+    height: 25px;
+    color: red !important;
+}
+
+#content #solucoes #terminal .terminal-content .gps hr {
+    border-color: navy;
+}

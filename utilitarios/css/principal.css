@@ -40,6 +40,16 @@ body {
     text-align: center;
 }
 
+#content #cabecalho #pergunta .img-holder {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+#content #cabecalho #pergunta .img-holder img {
+    height: 100%;
+}
+
 #content #cabecalho #pergunta .numero {
     color: #fff;
     font-size: 40px;
