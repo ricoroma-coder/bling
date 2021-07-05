@@ -74,7 +74,8 @@ body {
 
 #content #entradas form input,
 #content #entradas form select,
-#content #entradas form button {
+#content #entradas form button,
+#content #entradas form textarea {
     font-size: 24px;
     padding: 5px 10px;
     font-family: 'Fredoka One';
@@ -83,13 +84,20 @@ body {
 }
 
 #content #entradas form input,
-#content #entradas form select {
+#content #entradas form select,
+#content #entradas form textarea {
     color: #04D699;
     background-color: transparent;
     border: none;
     border-radius: 15px;
     width: 30%;
     border-bottom: 1px solid #fff;
+}
+
+#content #entradas form textarea {
+    width: 80% !important;
+    margin-bottom: 10px;
+    max-height: 200px;
 }
 
 #content #entradas form button {
@@ -214,4 +222,8 @@ body {
 
 #content #solucoes #terminal .terminal-content .virgula {
     color: yellow;
+}
+
+#content #solucoes #terminal .terminal-content .grifado {
+    background-color: darkblue;
 }

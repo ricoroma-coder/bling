@@ -30,7 +30,29 @@ class Exercicio5 extends Basica
                 $_subtexto = "";
             }
             if ($this->_subtexto == $_subtexto) 
-                $this->_ocorrencias[$_posicao] = $_posicao;
+                $this->_ocorrencias[$_posicao] = $_posicao - (strlen($this->_subtexto) - 1);
         }
+    }
+
+    public function montarHTML($_html = "")
+    {
+        $_chars = str_split($this->_texto);
+        $_html = "<p>";
+        $_atual = 0;
+        for ($_i = 0; $_i < sizeof($_chars); $_i++)
+        {
+            if (in_array($_i, $this->_ocorrencias))
+            {
+                $_atual = $_i;
+                $_html .= '<span class="grifado">';
+            }
+            else if ($_i == ($_atual + (strlen($this->_subtexto))))
+            {
+                $_html .= '</span>';
+            }
+            $_html .= is_numeric($_chars[$_i]) ? '<span class="numero">'.$_chars[$_i].'</span>' : $_chars[$_i];
+        }
+
+        parent::montarHTML($_html);
     }
 }
