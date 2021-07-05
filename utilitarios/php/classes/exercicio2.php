@@ -16,11 +16,15 @@ class Exercicio2 extends Basica
     {
         $_tam_array = sizeof($this->_array);
         $_resumo = $this->separarParesImpares($_tam_array);
-        $this->organizarArray($_resumo);
+        if ($_resumo !== false)
+            $this->organizarArray($_resumo);
     }
 
     public function separarParesImpares($_tam_array)
     {
+        if ($this->validarValores() === false)
+            return false;
+
         $_impares = 0;
         $_pares = 0;
         for ($_i = 0; $_i < $_tam_array; $_i++)
@@ -51,5 +55,41 @@ class Exercicio2 extends Basica
             $this->_array[] = $this->_array[$_i];
             unset($this->_array[$_i]);
         }
+    }
+
+    public function validarValores()
+    {
+        foreach ($this->_array as $_valor)
+        {
+            if (!is_numeric($_valor))
+                $this->_erro[] = "'{$_valor}' não é um número.";
+        }
+
+        if (!empty($this->_erro))
+            return false;
+        return true;
+    }
+
+    public function montarHTML($_html = "")
+    {
+        if (!empty($this->_erro))
+        {
+            $_html = '<p class="erro">'.implode('<br>', $this->_erro).'</p>';
+        }
+        else
+        {
+            $_html = '<p><span class="tipagem">Array</span>[<span class="numero">'.sizeof($this->_array).'</span>]<br>[';
+            $_i = 0;
+            foreach ($this->_array as $_valor)
+            {
+                if ($_i == 0)
+                    $_html .= '<br>';
+                $_html .= "&nbsp;&nbsp;[<span class=\"numero\">{$_i}</span>] => <span class=\"numero\">{$_valor}</span><span class=\"virgula\">,</span><br>";
+                $_i++;
+            }
+            $_html .= ']</p>';
+        }
+        
+        parent::montarHTML($_html);
     }
 }

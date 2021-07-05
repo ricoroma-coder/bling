@@ -37,10 +37,10 @@
                             <span>Terminal</span>
                         </div>
                         <div class="options">
-                            <div class="scroll fas fa-angle-up"></div>
+                            <div class="scroll fas fa-angle-up opened"></div>
                         </div>
                     </div>
-                    <div class="terminal-content">
+                    <div class="terminal-content opened">
                         <p>© Terminal by Roma Technologies</p>
                         <p class="linha-inicial"><?php echo __FILE__; ?>></p>
                     </div>

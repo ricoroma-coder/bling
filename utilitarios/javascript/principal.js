@@ -1,5 +1,3 @@
-var teste = "";
-
 document.getElementById('form').addEventListener('submit', function(e) {
     e.preventDefault()
     
@@ -29,6 +27,21 @@ document.getElementById('form').addEventListener('submit', function(e) {
         document.querySelector('.terminal-content').innerHTML = html
         adicionarLinhaInicial()
     }
+})
+
+document.querySelector('#terminal .scroll').addEventListener('click', function () {
+    var classe = this.getAttribute('class')
+    var opened = classe.indexOf('opened') >= 0
+    var terminal_content = document.querySelector('#terminal .terminal-content')
+    if (opened) {
+        classe = classe.replace('opened', 'closed');
+        terminal_content.setAttribute('class', terminal_content.getAttribute('class').replace('opened', 'closed'))
+    } else {
+        classe = classe.replace('closed', 'opened');
+        terminal_content.setAttribute('class', terminal_content.getAttribute('class').replace('closed', 'opened'))
+
+    }
+    this.setAttribute('class', classe)
 })
 
 function pegarValoresForm(form) {

@@ -2,7 +2,7 @@
 
 class Basica 
 {
-    public $_erro = "";
+    public $_erro = Array();
 
     public function buscar($_atributo)
     {

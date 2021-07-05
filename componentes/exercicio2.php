@@ -5,6 +5,8 @@
 <html>
     <head>
         <title>Bling - Exercício 2</title>
+        <link rel="stylesheet" href="../utilitarios/css/principal.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
     <body>
         <div id="content">
@@ -17,24 +19,30 @@
                 <div class="apresentacao">
                     <span>Me ajude a resolver esse exercício:</span>
                 </div>
-                <form action="" method="POST">
+                <form action="" method="POST" exe="exercicio2.php" id="form">
                     <input type="text" placeholder="Números. Ex: 1,2,3,4" name="vetor">
                     <button name="enviar">Enviar</button>
                 </form>
             </div>
             <div id="solucoes">
-                <div class="solucao">
-                    <?php
-                        if (isset($_POST['enviar'])) 
-                        {
-                            $_post = $_POST;
-                            $_obj = new Exercicio2($_post['vetor']);
-                            $_obj->reordenarArray();
-                            print_r($_obj->buscar('_array'));
-                        }
-                    ?>
+                <div id="terminal">
+                    <div class="barra">
+                        <div class="header">
+                            <img src="../utilitarios/img/terminal.png" alt="">
+                            <span>Terminal</span>
+                        </div>
+                        <div class="options">
+                            <div class="scroll fas fa-angle-up opened"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content opened">
+                        <p>© Terminal by Roma Technologies</p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <script src="../utilitarios/javascript/principal.js"></script>
     </body>
 </html>

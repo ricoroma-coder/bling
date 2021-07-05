@@ -167,7 +167,13 @@ body {
 
 #content #solucoes #terminal .barra .options .scroll {
     font-size: 20px;
+    transition: transform .2s;
     cursor: pointer;
+}
+
+#content #solucoes #terminal .barra .options .scroll.closed {
+    transition: transform .2s;
+    transform: rotate(0.5turn);
 }
 
 #content #solucoes #terminal .terminal-content {
@@ -175,6 +181,16 @@ body {
     color: #fff;
     font-family: monospace;
     font-size: 16px;
+    overflow: hidden;
+    word-break: break-all
+}
+
+#content #solucoes #terminal .terminal-content.opened {
+    height: auto;
+}
+
+#content #solucoes #terminal .terminal-content.closed {
+    height: 0;
 }
 
 #content #solucoes #terminal .terminal-content p {
