@@ -42,10 +42,114 @@ body {
     color:#c2e233;
 }
 
-#content #cabecalho {
+#content #cabecalho,
+#content #itens {
     flex: 1;
     background: #04D699;
     padding: 30px 20px;
+}
+
+#content #itens {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#content #itens .item {
+    width: 30%;
+    height: 450px;
+    max-height: 450px;
+    min-height: 450px;
+    display: flex;
+    border-radius: 15px;
+    margin: 20px 0px;
+}
+
+#content #itens .item.opened {
+    flex-direction: row;
+    transition: width .5s;
+    width: 100%;
+}
+
+#content #itens .item.closed {
+    transition: width .5s;
+    flex-direction: column;
+}
+
+#content #itens .item .img-holder {
+    flex: 1;
+}
+
+#content #itens .item .content {
+    flex: 2;
+    background-color: #3f3d3d;
+    color: #fff;
+    font-family: 'Fredoka One';
+    font-size: 20px;
+    overflow: hidden;
+    padding: 30px !important;
+}
+
+#content #itens .item.closed .content {
+    max-height: 250px;
+}
+
+#content #itens .item.opened .content {
+    max-height: 100%;
+}
+
+#content #itens .item .content .text {
+    overflow: hidden;
+    height: 100%;
+}
+
+#content #itens .item .content .option {
+    display: flex;
+    flex-direction: row;
+}
+
+#content #itens .item .content .option > div {
+    flex: 1;
+}
+
+.linkar-pagina {
+    cursor: pointer;
+}
+
+#content #itens .item .content .option i {
+    color: #04D699;
+    background-color: #fff;
+    border-radius: 16px;
+    font-size: 25px;
+    border: 1px solid black;
+}
+
+#content #itens .item .img-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#fff;
+}
+
+#content #itens .item.opened .img-holder {
+    border-radius: 15px 0px 0px 15px;
+}
+
+#content #itens .item.closed .img-holder {
+    border-radius: 15px 15px 0px 0px;
+}
+
+#content #itens .item .img-holder .text-img {
+    font-family: 'Fredoka One';
+    font-size: 30px;
+    color: #04D699;
+    letter-spacing: -2px;
+    font-style: italic;
+}
+
+#content #itens .item .content {
+    padding: 20px;
 }
 
 #content #cabecalho #pergunta {
@@ -83,13 +187,33 @@ body {
     margin: 0px 10px;
 }
 
-#content #entradas {
-    flex: 3;
+#content #entradas,
+#content #cabecalho-inicial {
     background-color: #3f3d3d;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#content #entradas {
+    flex: 3;
+}
+
+#content #cabecalho-inicial {
+    height: 50px !important;
+}
+
+#content #cabecalho-inicial .title {
+    font-size: 36px;
+    font-weight: bold;
+    color:#04D699;
+    font-family: system-ui;
+    letter-spacing: -2px;
+}
+
+#content #cabecalho-inicial .title .exclamation {
+    transform: rotate(15deg);
 }
 
 #content #entradas .apresentacao {
@@ -324,4 +448,9 @@ body {
 
 #content #solucoes #terminal .terminal-content .sql {
     color:blue;
+}
+
+.ver-mais {
+    color:#04D699;
+    cursor: pointer;
 }
