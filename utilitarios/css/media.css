@@ -1,6 +1,67 @@
-@media screen and (min-device-width: 541px) and (max-device-width: 610px) { 
-    #content #solucoes #terminal {
-        /* font-size: 50px !important; */
+@media screen and (max-device-width: 780px) {
+    #content #solucoes #terminal .terminal-content .img-holder {
+        display: none !important;
+    }
+}
+
+@media screen and (max-device-width: 620px) { 
+    #content #solucoes #terminal .barra {
+        height: 50px !important;
+        font-size: 30px;
+    }
+
+    #content #solucoes #terminal .barra .header,
+    #content #solucoes #terminal .barra .header img,
+    #content #solucoes #terminal .barra .options {
+        height: 40px !important;
+    }
+
+    #content #solucoes #terminal .barra .options .scroll,
+    #content #solucoes #terminal .barra .options .clean {
+        font-size: 30px !important;
+        margin: 0px 10px;
+    }
+
+    #content #solucoes #terminal .terminal-content {
+        font-size: 26px !important;
+    }
+
+    #content #btn-voltar i {
+        font-size: 60px !important;
+    }
+}
+
+@media screen and (max-device-width: 470px) { 
+    #content #solucoes #terminal .barra {
+        height: 70px !important;
+        font-size: 50px;
+    }
+
+    #content #solucoes #terminal .barra .header,
+    #content #solucoes #terminal .barra .header img,
+    #content #solucoes #terminal .barra .options {
+        height: 60px !important;
+    }
+
+    #content #solucoes #terminal .barra .options .scroll,
+    #content #solucoes #terminal .barra .options .clean {
+        font-size: 50px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content {
+        font-size: 40px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content .linha-inicial {
+        font-size: 0px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content .linha-inicial > span {
+        font-size: 40px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content .gps .ponto .esconder-470 {
+        display: none !important;
     }
 }
 
@@ -12,9 +73,16 @@
     #content #cabecalho #pergunta > span {
         font-size: 54px !important;
     }
+}
 
+@media screen and (max-device-width: 540px) { 
     #content #entradas .apresentacao {
         font-size: 40px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content .mapa-tabela .linha-tabela {
+        width: 30px !important;
+        height: 30px !important;
     }
 
     #content #entradas form input,
@@ -30,14 +98,63 @@
     #content #entradas form select option {
         font-size: 18px !important;
     }
+
+    #content #entradas form button {
+        max-width: 90% !important;
+        width: 90% !important;
+    }
+
+    #content #btn-voltar {
+        border-radius: 35px !important;
+    }
+
+    #content #btn-voltar i {
+        font-size: 74px !important;
+    }
 }
 
 @media screen and (max-device-width: 410px) { 
+    #content #entradas .apresentacao {
+        font-size: 50px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content .mapa-tabela {
+        font-size: 30px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content .mapa-tabela .linha-tabela {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
     #content #cabecalho #pergunta {
         font-size: 60px !important;
     }
 
     #content #cabecalho #pergunta > span {
         font-size: 64px !important;
+    }
+
+    #content #entradas form input,
+    #content #entradas form select,
+    #content #entradas form button,
+    #content #entradas form textarea {
+        font-size: 44px !important;
+        padding: 20px 35px !important;
+    }
+}
+
+@media screen and (max-device-width: 340px) { 
+    #content #solucoes #terminal .barra .options .scroll,
+    #content #solucoes #terminal .barra .options .clean {
+        font-size: 34px !important;
+    }
+
+    #content #solucoes #terminal .terminal-content {
+        font-size: 40px !important;
+    }
+
+    #content #btn-voltar i {
+        font-size: 80px !important;
     }
 }

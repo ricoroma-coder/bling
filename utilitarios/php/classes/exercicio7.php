@@ -120,7 +120,7 @@ class Exercicio7 extends Basica
                 foreach ($_pontos as $_ponto)
                 {
                     $_ponto = strtoupper($_ponto);
-                    $_html .= "<div class=\"ponto\"><div class\"icone\"><i style=\"color:red;\"  class=\"fas fa-map-marker-alt\"></i></div><hr><span><strong>{$_ponto}</strong></span></div>";
+                    $_html .= "<div class=\"ponto\"><div class\"icone esconder-470\"><i style=\"color:red;\"  class=\"fas fa-map-marker-alt\"></i></div><hr class=\"esconder-470\"><span><strong>{$_ponto}</strong></span></div>";
                 }
                 $_html .= "<div>Distância <span class=\"numero\">{$_distancia}</span></div>";
                 $_html .= "</div>";

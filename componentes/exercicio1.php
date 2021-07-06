@@ -45,7 +45,7 @@
                     </div>
                     <div class="terminal-content opened">
                         <p>© Terminal by Roma Technologies</p>
-                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?><span>></span></p>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ include_once __DIR__ . "/../utilitarios/php/classes/component.php";
 <html>
     <head>
         <title>Bling - SQL</title>
+        <link rel="stylesheet" href="../utilitarios/css/media.css">
         <link rel="stylesheet" href="../utilitarios/css/principal.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
@@ -49,7 +50,7 @@ include_once __DIR__ . "/../utilitarios/php/classes/component.php";
                     </div>
                     <div class="terminal-content opened">
                         <p>© Terminal by Roma Technologies</p>
-                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?><span>></span></p>
                         <?php
                             echo '<p><span class="numero">1</span>.</p><p>';
                             echo '<span><span class="tipagem">N</span> \'<span class="object">ATORES</span>\' participam de <span class="tipagem">N</span> \'<span class="object">FILMES</span>\'.</span><br>';

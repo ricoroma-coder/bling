@@ -9,6 +9,7 @@ include_once __DIR__ . "/../utilitarios/php/classes/element.php";
 <html>
     <head>
         <title>Bling - Exercício 8</title>
+        <link rel="stylesheet" href="../utilitarios/css/media.css">
         <link rel="stylesheet" href="../utilitarios/css/principal.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
@@ -37,7 +38,7 @@ include_once __DIR__ . "/../utilitarios/php/classes/element.php";
                     </div>
                     <div class="terminal-content opened">
                         <p>© Terminal by Roma Technologies</p>
-                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?><span>></span></p>
                         <?php
                             echo '<p><strong class="object">Component</strong></p>';
                             $_component = new Component();
@@ -82,14 +83,14 @@ include_once __DIR__ . "/../utilitarios/php/classes/element.php";
                             echo '<p class="title">Pseudocódigo</p>';
                             echo '<img src="../utilitarios/img/pseudocodigo.png" alt="Pseudocódigo">';
                             echo '</div>';
-                            echo '<p class="escondido"><a href="../utilitarios/img/pseudocodigo.png">Pseudocódigo</a></p>';
+                            echo '<p><a href="../utilitarios/img/pseudocodigo.png">Pseudocódigo</a></p>';
 
                             echo '<hr style="margin:10px;">';
                             echo '<div class="img-holder">';
                             echo '<p class="title">Diagrama de classes</p>';
                             echo '<img src="../utilitarios/img/diagrama_classes.png" alt="Diagrama de Classes">';
                             echo '</div>';
-                            echo '<p class="escondido"><a href="../utilitarios/img/diagrama_classes.png">Diagrama de Classes</a></p>';
+                            echo '<p><a href="../utilitarios/img/diagrama_classes.png">Diagrama de Classes</a></p>';
                         ?>
                     </div>
                 </div>

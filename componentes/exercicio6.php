@@ -5,6 +5,7 @@
 <html>
     <head>
         <title>Bling - Exercício 6</title>
+        <link rel="stylesheet" href="../utilitarios/css/media.css">
         <link rel="stylesheet" href="../utilitarios/css/principal.css">
         <link rel="stylesheet" href="../utilitarios/css/exercicio6.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -62,7 +63,7 @@
                     </div>
                     <div class="terminal-content opened">
                         <p>© Terminal by Roma Technologies</p>
-                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?><span>></span></p>
                     </div>
                 </div>
             </div>
