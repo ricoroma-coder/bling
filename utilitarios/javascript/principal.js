@@ -63,11 +63,14 @@ function linkarPagina(dom) {
 function abrirItem(elemento) {
     var item = buscarParent('.item', elemento)
     if (item != null) {
-        console.log(item.getAttribute('class'))
-        if (item.getAttribute('class').indexOf('closed') >= 0)
+        if (item.getAttribute('class').indexOf('closed') >= 0) {
             item.setAttribute('class', item.getAttribute('class').replaceAll('closed', 'opened'))
-        else
+            elemento.textContent = 'Ver menos...'
+        }
+        else {
             item.setAttribute('class', item.getAttribute('class').replaceAll('opened', 'closed'))
+            elemento.textContent = 'Ver mais...'
+        }
     }
 }
 

@@ -42,7 +42,7 @@
                                 <span><?php echo $_enunciado; ?></span>
                             </div>
                             <div class="option">
-                                <div onclick="linkarPagina(this)" href="<?php echo $_arquivo; ?>">
+                                <div class="linkar-pagina" onclick="linkarPagina(this)" href="<?php echo $_arquivo; ?>">
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>
                                 <div style="text-align: right;">
