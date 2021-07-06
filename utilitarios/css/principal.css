@@ -48,6 +48,7 @@ body {
 
 #content #cabecalho #pergunta .img-holder img {
     height: 100%;
+    max-width: 100%;
 }
 
 #content #cabecalho #pergunta .numero {
@@ -212,6 +213,40 @@ body {
     word-break: break-all
 }
 
+#content #solucoes #terminal .terminal-content .img-holder {
+    margin: 10px;
+    height: 600px;
+}
+
+#content #solucoes #terminal .terminal-content .img-holder .title {
+    height: 30px;
+    font-weight: bold;
+    color:mediumspringgreen;
+    font-size: 24px;
+}
+
+#content #solucoes #terminal .terminal-content .img-holder img {
+    height: 90%;
+    max-width: 100%;
+}
+
+#content #solucoes #terminal .terminal-content .escondido {
+    display: none;
+}
+
+#content #solucoes #terminal .terminal-content a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration:none;
+    color:darkturquoise; 
+}
+
+#content #solucoes #terminal .terminal-content a:hover {
+    font-weight: bolder;
+    text-decoration: underline; 
+    color:royalblue;
+}
+
 #content #solucoes #terminal .terminal-content.opened {
     height: auto;
 }
@@ -249,4 +284,8 @@ body {
 
 #content #solucoes #terminal .terminal-content .observacao {
     color:darkorange;
+}
+
+#content #solucoes #terminal .terminal-content .object {
+    color:forestgreen;
 }

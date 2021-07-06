@@ -6,7 +6,6 @@ class Element extends Component
 {
 	public function getElements()
 	{
-		$this->add(parent::getElements());
 		return parent::getElements();
 	}
 }
