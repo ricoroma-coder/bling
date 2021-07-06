@@ -7,14 +7,17 @@ include_once __DIR__ . "/../utilitarios/php/classes/component.php";
 <html>
     <head>
         <title>Bling - SQL</title>
+        <link rel="stylesheet" href="../utilitarios/css/principal.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
     <body>
         <div id="content">
+            <div id="btn-voltar" onclick="redirecionarIndex()"><i class="fas fa-arrow-circle-left"></i></div>
             <div id="cabecalho">
                 <div id="pergunta">
                     <div class="title">SQL - modelo relacional</div>
                     <span>Considere o diagrama ER abaixo:</span>
-                    <div>
+                    <div class="img-holder">
                         <img src="../utilitarios/img/sql.png" alt="Exercicio 8">
                     </div>
                     <div>
@@ -33,34 +36,47 @@ include_once __DIR__ . "/../utilitarios/php/classes/component.php";
                     </div>
                 </div>
             </div>
-            <div id="entradas">
-                <!-- <div class="apresentacao">
-                    <span>Me ajude a resolver esse exercício:</span>
-                </div> -->
-            </div>
             <div id="solucoes">
-                <div class="solucao">
-                    <?php
-                        echo '1.<br>';
-                        echo 'N \'ATORES\' participam de N \'FILMES\'.<br>';
-                        echo 'N \'FILMES\' podem conter N \'ATORES\'.<br>';
-                        echo '1 \'DIRETOR\' dirige N \'FILMES\'.<br>';
-                        echo 'N \'FILMES\' podem ser dirigidos por 1 \'DIRETOR\'.<br>';
-                        echo '<br>';
-                        echo '<br>2.<br>';
-                        echo 'CREATE DATABASE PRODUTORA_BLING;<br>
-                        CREATE TABLE FILME(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, TITULO VARCHAR(45) NOT NULL, ANO YEAR(4) NOT NULL);<br>
-                        CREATE TABLE ATOR(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, NOME VARCHAR(45) NOT NULL);<br>
-                        CREATE TABLE ELENCO(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ID_ATOR INT NOT NULL, ID_FILME INT NOT NULL);<br>
-                        CREATE TABLE DIRETOR(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, NOME VARCHAR(45) NOT NULL);<br>
-                        CREATE TABLE DIRECAO(ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ID_DIRETOR INT NOT NULL, ID_FILME INT NOT NULL);<br>';
-                        echo '<br><br>';
-                        echo '3.<br>';
-                        echo 'Para conferir essa atividade, faça o download do Arquivo SQL abaixo. (OBS: Os exercícios estão no fim do arquivo)<br>';
-                    ?>
-                    <a href="../utilitarios/arquivos/sql.sql">Arquivo SQL</a>
+                <div id="terminal">
+                    <div class="barra">
+                        <div class="header">
+                            <img src="../utilitarios/img/terminal.png" alt="">
+                            <span>Terminal</span>
+                        </div>
+                        <div class="options">
+                            <div class="scroll fas fa-angle-up opened"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content opened">
+                        <p>© Terminal by Roma Technologies</p>
+                        <p class="linha-inicial"><?php echo __FILE__; ?>></p>
+                        <?php
+                            echo '<p><span class="numero">1</span>.</p><p>';
+                            echo '<span><span class="tipagem">N</span> \'<span class="object">ATORES</span>\' participam de <span class="tipagem">N</span> \'<span class="object">FILMES</span>\'.</span><br>';
+                            echo '<span><span class="tipagem">N</span> \'<span class="object">FILMES</span>\' podem conter <span class="tipagem">N</span> \'<span class="object">ATORES</span>\'.</span><br>';
+                            echo '<span><span class="tipagem">1</span> \'<span class="object">DIRETOR</span>\' dirige <span class="tipagem">N</span> \'<span class="object">FILMES</span>\'.</span><br>';
+                            echo '<span><span class="tipagem">N</span> \'<span class="object">FILMES</span>\' podem ser dirigidos por <span class="tipagem">1</span> \'<span class="object">DIRETOR</span>\'.</span><br>';
+                            echo '</p>';
+                            
+                            echo '<p><span class="numero">2</span>.</p><p>';
+                            echo '<span class="sql">CREATE DATABASE</span> PRODUTORA_BLING;</span><br>
+                            <span class="sql">CREATE TABLE</span> <span class="tabela">FILME</span>(ID <span class="sql">INT NOT NULL PRIMARY KEY</span> AUTO_INCREMENT, TITULO <span class="sql">VARCHAR</span>(<span class="numero">45</span>) <span class="sql">NOT NULL</span>, ANO <span class="tabela">YEAR</span>(<span class="numero">4</span>) <span class="sql">NOT NULL</span>);<br>
+                            <span class="sql">CREATE TABLE</span> <span class="tabela">ATOR</span>(ID <span class="sql">INT NOT NULL PRIMARY KEY</span> AUTO_INCREMENT, NOME <span class="sql">VARCHAR</span>(<span class="numero">45</span>) <span class="sql">NOT NULL</span>);<br>
+                            <span class="sql">CREATE TABLE</span> <span class="tabela">ELENCO</span>(ID <span class="sql">INT NOT NULL PRIMARY KEY</span> AUTO_INCREMENT, ID_ATOR <span class="sql">INT NOT NULL</span>, ID_FILME <span class="sql">INT NOT NULL</span>);<br>
+                            <span class="sql">CREATE TABLE</span> <span class="tabela">DIRETOR</span>(ID <span class="sql">INT NOT NULL PRIMARY KEY</span> AUTO_INCREMENT, NOME <span class="sql">VARCHAR</span>(<span class="numero">45</span>) <span class="sql">NOT NULL</span>);<br>
+                            <span class="sql">CREATE TABLE</span> <span class="tabela">DIRECAO</span>(ID <span class="sql">INT NOT NULL PRIMARY KEY</span> AUTO_INCREMENT, ID_DIRETOR <span class="sql">INT NOT NULL</span>, ID_FILME <span class="sql">INT NOT NULL</span>);<br>';
+                            echo '</p>';
+
+                            echo '<p><span class="numero">3</span>.</p><p>';
+                            echo 'Para conferir essa atividade, faça o download do Arquivo SQL abaixo. (<span class="observacao">OBS:</span> Os exercícios estão no fim do arquivo)<br>';
+                            echo '<a href="../utilitarios/arquivos/sql.sql">Arquivo SQL</a>';
+                            echo '</p>';
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <script src="../utilitarios/javascript/principal.js"></script>
     </body>
 </html>

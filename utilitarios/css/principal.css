@@ -27,6 +27,21 @@ body {
     height: 100%;
 }
 
+#content #btn-voltar {
+    position: absolute;
+    top:0;
+    left:0;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#content #btn-voltar i {
+    font-size: 50px;
+    color:#c2e233;
+}
+
 #content #cabecalho {
     flex: 1;
     background: #04D699;
@@ -38,6 +53,15 @@ body {
     font-size: 32px;
     font-family: 'Fredoka One';
     text-align: center;
+}
+
+#content #cabecalho #pergunta ol {
+    text-align: left;
+}
+
+#content #cabecalho #pergunta .title {
+    color:#008d72;
+    font-size: 40px;
 }
 
 #content #cabecalho #pergunta .img-holder {
@@ -274,7 +298,8 @@ body {
     font-weight: bold;
 }
 
-#content #solucoes #terminal .terminal-content .virgula {
+#content #solucoes #terminal .terminal-content .virgula,
+    #content #solucoes #terminal .terminal-content .tabela {
     color: yellow;
 }
 
@@ -284,8 +309,13 @@ body {
 
 #content #solucoes #terminal .terminal-content .observacao {
     color:darkorange;
+    font-weight: bold;
 }
 
 #content #solucoes #terminal .terminal-content .object {
     color:forestgreen;
+}
+
+#content #solucoes #terminal .terminal-content .sql {
+    color:blue;
 }

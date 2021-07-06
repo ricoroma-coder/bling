@@ -44,6 +44,10 @@ document.querySelector('#terminal .scroll').addEventListener('click', function (
     this.setAttribute('class', classe)
 })
 
+function redirecionarIndex() {
+    window.location.href = "../componentes/exercicio1.php";
+}
+
 function pegarValoresForm(form) {
     const formData = new FormData(form)
     var valores = Array();
