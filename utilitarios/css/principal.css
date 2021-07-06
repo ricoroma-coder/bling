@@ -53,6 +53,7 @@ body {
     font-size: 32px;
     font-family: 'Fredoka One';
     text-align: center;
+    margin-left: 30px;
 }
 
 #content #cabecalho #pergunta ol {

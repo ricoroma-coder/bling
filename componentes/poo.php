@@ -14,6 +14,7 @@ include_once __DIR__ . "/../utilitarios/php/classes/element.php";
     </head>
     <body>
         <div id="content">
+            <div id="btn-voltar" onclick="redirecionarIndex()"><i class="fas fa-arrow-circle-left"></i></div>
             <div id="cabecalho">
                 <div id="pergunta">
                     <div class="title">Programação orientada à objetos e design patterns</div>

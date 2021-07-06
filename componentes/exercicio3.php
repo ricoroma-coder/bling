@@ -10,6 +10,7 @@
     </head>
     <body>
         <div id="content">
+            <div id="btn-voltar" onclick="redirecionarIndex()"><i class="fas fa-arrow-circle-left"></i></div>
             <div id="cabecalho">
                 <div id="pergunta">
                     <span>3. Escreva um algoritmo que calcule o tempo em dias a partir de uma data inicial e final recebidos no formato dd/mm/aaaa. Não deve usar funções de data e hora.</span>

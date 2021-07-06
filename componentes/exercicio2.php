@@ -10,6 +10,7 @@
     </head>
     <body>
         <div id="content">
+            <div id="btn-voltar" onclick="redirecionarIndex()"><i class="fas fa-arrow-circle-left"></i></div>
             <div id="cabecalho">
                 <div id="pergunta">
                     <span>2. Criar um algoritmo que leia um vetor de números e reordene este vetor contendo no início os números pares de forma crescente e, depois, os ímpares de forma decrescente.</span>

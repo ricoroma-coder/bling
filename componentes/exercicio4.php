@@ -10,6 +10,7 @@
     </head>
     <body>
         <div id="content">
+            <div id="btn-voltar" onclick="redirecionarIndex()"><i class="fas fa-arrow-circle-left"></i></div>
             <div id="cabecalho">
                 <div id="pergunta">
                     <span>4. Receba 6 números representando medidas a,b,c,d,e e f e relacionar quantos e quais triângulos é possível formar usando estas medidas. Exemplo [abc], [abd].</span>

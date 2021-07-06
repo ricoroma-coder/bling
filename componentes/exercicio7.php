@@ -11,6 +11,7 @@
     </head>
     <body>
         <div id="content">
+            <div id="btn-voltar" onclick="redirecionarIndex()"><i class="fas fa-arrow-circle-left"></i></div>
             <div id="cabecalho">
                 <div id="pergunta">
                     <span>7. Um algoritmo deve armazenar o mapa abaixo e listar os caminhos entre os pontos A e E.</span>

@@ -10,6 +10,7 @@
     </head>
     <body>
         <div id="content">
+            <div id="btn-voltar" onclick="redirecionarIndex()"><i class="fas fa-arrow-circle-left"></i></div>
             <div id="cabecalho">
                 <div id="pergunta">
                     <span>5. Um algoritmo deve buscar um sub-texto dentro de um texto fornecido. (Não usar funções de busca em string).</span>
