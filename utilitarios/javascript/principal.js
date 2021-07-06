@@ -1,33 +1,36 @@
-document.getElementById('form').addEventListener('submit', function(e) {
-    e.preventDefault()
-    
-    var valores = pegarValoresForm(this)
-
-    if (typeof valores == 'object') {
-        let xhr = new XMLHttpRequest()
-        xhr.open('POST', '../utilitarios/php/controladores/controlador.php', true)
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-        xhr.send("json="+JSON.stringify(valores))
-
-        xhr.onreadystatechange = () => {
-
-            if(xhr.readyState == 4) {
-                var html = ""
-                if(xhr.status == 200) {
-                    html = xhr.responseText
-                }
-                var novo_html = document.querySelector('.terminal-content').innerHTML + html
-                document.querySelector('.terminal-content').innerHTML = novo_html
-                adicionarLinhaInicial()
-            }
+if (document.getElementById('form') != null) {
+    document.getElementById('form').addEventListener('submit', function(e) {
+        e.preventDefault()
         
+        var valores = pegarValoresForm(this)
+
+        if (typeof valores == 'object') {
+            let xhr = new XMLHttpRequest()
+            xhr.open('POST', '../utilitarios/php/controladores/controlador.php', true)
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+            xhr.send("json="+JSON.stringify(valores))
+
+            xhr.onreadystatechange = () => {
+
+                if(xhr.readyState == 4) {
+                    var html = ""
+                    if(xhr.status == 200) {
+                        html = xhr.responseText
+                    }
+                    var novo_html = document.querySelector('.terminal-content').innerHTML + html
+                    document.querySelector('.terminal-content').innerHTML = novo_html
+                    adicionarLinhaInicial()
+                }
+            
+            }
+        } else {
+            var html = document.querySelector('.terminal-content').innerHTML + valores
+            document.querySelector('.terminal-content').innerHTML = html
+            adicionarLinhaInicial()
         }
-    } else {
-        var html = document.querySelector('.terminal-content').innerHTML + valores
-        document.querySelector('.terminal-content').innerHTML = html
-        adicionarLinhaInicial()
-    }
-})
+    })
+}
+
 
 document.querySelector('#terminal .scroll').addEventListener('click', function () {
     var classe = this.getAttribute('class')
@@ -44,8 +47,13 @@ document.querySelector('#terminal .scroll').addEventListener('click', function (
     this.setAttribute('class', classe)
 })
 
+document.querySelector('#terminal .options .clean').addEventListener('click', function () {
+    var html = '<p>© Terminal by Roma Technologies</p>'+document.querySelector('#terminal .terminal-content .linha-inicial').outerHTML
+    document.querySelector('#terminal .terminal-content').innerHTML = html;
+})
+
 function redirecionarIndex() {
-    window.location.href = "../componentes/exercicio1.php";
+    window.location.href = "../componentes/exercicio1.php"
 }
 
 function pegarValoresForm(form) {

@@ -224,6 +224,11 @@ body {
     cursor: pointer;
 }
 
+#content #solucoes #terminal .barra .options .clean {
+    font-size: 20px;
+    cursor: pointer;
+}
+
 #content #solucoes #terminal .barra .options .scroll.closed {
     transition: transform .2s;
     transform: rotate(0.5turn);

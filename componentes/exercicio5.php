@@ -34,6 +34,7 @@
                             <span>Terminal</span>
                         </div>
                         <div class="options">
+                            <div class="clean fas fa-ban"></div>
                             <div class="scroll fas fa-angle-up opened"></div>
                         </div>
                     </div>
